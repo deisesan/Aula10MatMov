@@ -8,15 +8,14 @@ import {
 } from 'lucide-react';
 import MatMovLogo from '../components/MatMovLogo';
 import HomeworkDiagram from '../components/HomeworkDiagrams';
-import { HOMEWORK_LESSON_10, HOMEWORK_LESSON_8 } from '../data/homeworkData';
+import { HOMEWORK_LESSON_10 } from '../data/homeworkData';
 import { sounds } from '../utils/audio';
 
 export default function SlideHomeworkMaterial({ onOpenExerciseOnBlankSlide }) {
-  const [activeLesson, setActiveLesson] = useState('aula_10'); // 'aula_10' or 'aula_08'
   const [viewMode, setViewMode] = useState('sheet'); // 'sheet' (A4 Worksheet) or 'interactive' (Slide Cards)
   const [showAnswers, setShowAnswers] = useState(false);
 
-  const homework = activeLesson === 'aula_10' ? HOMEWORK_LESSON_10 : HOMEWORK_LESSON_8;
+  const homework = HOMEWORK_LESSON_10;
 
   const downloadPdf = () => {
     sounds.playSuccess();
@@ -53,34 +52,11 @@ export default function SlideHomeworkMaterial({ onOpenExerciseOnBlankSlide }) {
             </span>
           </div>
 
-          {/* Toggle between Aula 10 and Aula 8 */}
+          {/* Badge Aula 10 */}
           <div className="flex items-center bg-slate-950 p-0.5 rounded-xl border border-slate-800 text-xs">
-            <button
-              onClick={() => {
-                setActiveLesson('aula_10');
-                sounds.playTone(500, 'sine', 0.08);
-              }}
-              className={`px-3 py-1 rounded-lg font-bold transition ${
-                activeLesson === 'aula_10'
-                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                  : 'text-slate-400 hover:text-white'
-              }`}
-            >
+            <span className="px-3 py-1 rounded-lg font-bold bg-indigo-600 text-white shadow-md shadow-indigo-600/30">
               Aula 10 (Lei dos Senos e Cossenos)
-            </button>
-            <button
-              onClick={() => {
-                setActiveLesson('aula_08');
-                sounds.playTone(450, 'sine', 0.08);
-              }}
-              className={`px-3 py-1 rounded-lg font-bold transition ${
-                activeLesson === 'aula_08'
-                  ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30'
-                  : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              Aula 08 (Pitágoras)
-            </button>
+            </span>
           </div>
         </div>
 
