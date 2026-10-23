@@ -15,7 +15,7 @@ export default function MathView({ math, block = false, className = '' }) {
 
   return (
     <span
-      className={`inline-block ${className}`}
+      className={`${block ? 'block w-full' : 'inline-block'} ${className}`}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );

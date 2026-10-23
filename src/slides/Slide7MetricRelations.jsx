@@ -212,10 +212,16 @@ export default function Slide7MetricRelations() {
             <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
               Se o triângulo for <strong className="text-emerald-300">retângulo em A</strong> (<MathView math="\hat{A} = 90^\circ" />), o lado <strong className="text-emerald-300">a</strong> passa a ser a hipotenusa e <strong className="text-white">b, c</strong> são os catetos. Veja a mágica:
             </p>
-            <div className="p-3 bg-slate-950/90 rounded-2xl border border-emerald-500/30 space-y-1 text-xs sm:text-sm">
-              <MathView math="a^2 = b^2 + c^2 - 2\cdot b\cdot c\cdot \cos 90^\circ" block />
-              <MathView math="a^2 = b^2 + c^2 - 2\cdot b\cdot c\cdot \mathbf{0}" block className="text-amber-300" />
-              <MathView math="\mathbf{a^2 = b^2 + c^2 \quad (\text{Teorema de Pitágoras!})}" block className="text-emerald-400 font-black text-base" />
+            <div className="p-3 bg-slate-950/90 rounded-2xl border border-emerald-500/30 flex flex-col gap-1.5 text-xs sm:text-sm">
+              <div>
+                <MathView math="a^2 = b^2 + c^2 - 2\cdot b\cdot c\cdot \cos 90^\circ" />
+              </div>
+              <div>
+                <MathView math="a^2 = b^2 + c^2 - 2\cdot b\cdot c\cdot \mathbf{0}" className="text-amber-300" />
+              </div>
+              <div>
+                <MathView math="\mathbf{a^2 = b^2 + c^2 \quad (\text{Teorema de Pitágoras!})}" className="text-emerald-400 font-black text-base" />
+              </div>
             </div>
             <div className="grid grid-cols-3 gap-2 text-[11px] text-center pt-1">
               <div className="p-1.5 rounded-xl bg-slate-950/70 border border-slate-800 text-sky-300">
