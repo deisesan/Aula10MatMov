@@ -7,7 +7,6 @@ export default function Slide10ClosingHomework({ onViewHomeworkMaterial }) {
   const [checklist, setChecklist] = useState({
     participacao: true,
     licao: false,
-    pontos: false,
     despedida: false,
   });
 
@@ -104,10 +103,7 @@ export default function Slide10ClosingHomework({ onViewHomeworkMaterial }) {
           <div className="space-y-1.5">
             <div className="flex items-center gap-2">
               <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-400">
-                Pontuação Somativa
-              </span>
-              <span className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">
-                +20 Pontos
+                Entrega da Tarefa
               </span>
             </div>
             <h3 className="text-lg font-bold text-white">Envio no Canal Oficial</h3>

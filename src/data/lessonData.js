@@ -109,7 +109,7 @@ export const SLIDES_DATA = [
     title: "Fechamento e Lição de Casa",
     time: "11:20 - 11:30",
     duration: "10 min",
-    speakerScript: "Parabéns pela aula espetacular de hoje, turma! Vocês viram como a Lei dos Senos e a Lei dos Cossenos resolvem qualquer triângulo e como o Teorema de Pitágoras mora dentro da Lei dos Cossenos. Não deixem de fazer a Lição de Casa da Aula 10 e enviar a foto no Moodle para garantir os +20 pontos!",
+    speakerScript: "Parabéns pela aula espetacular de hoje, turma! Vocês viram como a Lei dos Senos e a Lei dos Cossenos resolvem qualquer triângulo e como o Teorema de Pitágoras mora dentro da Lei dos Cossenos. Não deixem de fazer a Lição de Casa da Aula 10 e enviar a foto da resolução no Moodle!",
     chatPrompt: "Mandem um emoji no chat de como foi dominar Senos e Cossenos hoje (🚀 / 🎯 / 🧠)!",
     pedagogicalTip: "Mostre rapidamente a folha da Lição de Casa no próximo slide (Slide 11) para que todos vejam as 3 questões.",
     habilities: "Consolidação e Engajamento",

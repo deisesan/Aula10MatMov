@@ -5,13 +5,12 @@ export const HOMEWORK_LESSON_10 = {
   topic: 'Lei dos Senos e Lei dos Cossenos (Triângulos Quaisquer)',
   chapter: 'Trigonometria em Triângulos Quaisquer',
   date: 'Material Oficial da Aula 10',
-  points: 20,
   deadline: 'Enviar foto legível da resolução no canal oficial até a próxima aula',
 
   instructions: [
     'Resolva todas as questões no seu caderno de Matemática de forma organizada.',
     'Destaque qual lei foi escolhida (Lei dos Senos ou Lei dos Cossenos), os cálculos e as unidades (cm, m, graus).',
-    'Tire uma foto nítida e bem iluminada do seu caderno e envie pelo canal oficial para garantir seus +20 pontos!',
+    'Tire uma foto nítida e bem iluminada do seu caderno e envie pelo canal oficial (Moodle)!',
   ],
 
   questions: [

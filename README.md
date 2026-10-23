@@ -73,7 +73,7 @@ Abra o navegador em: [http://localhost:5173](http://localhost:5173)
    * **Timer de 5 minutos integrado** + 2 exercícios selecionados (Q1: Lei dos Senos e Q2: Lei dos Cossenos) com botões de Dica e Resolução Comentada.
 
 10. **Slide 10 — Fechamento e Lição de Casa (11:20 - 11:30)**
-    * Efeito comemorativo de confetes, avisos do Moodle (+20 pontos), plantão Wikimática e download do PDF oficial.
+    * Efeito comemorativo de confetes, avisos do Moodle, plantão Wikimática e download do PDF oficial.
 
 11. **Slide 11 — Material Oficial da Lição de Casa (11:25 - 11:30)**
     * Folha A4 oficial da Lição de Casa da Aula 10 pronta para impressão/PDF, gabarito do professor e integração com o Quadro em Branco.
