@@ -4,8 +4,8 @@ import { HelpCircle, CheckCircle, Lightbulb, Triangle, Table } from 'lucide-reac
 import { sounds } from '../utils/audio';
 
 export default function Slide2AnglesReview() {
-  const [angleA, setAngleA] = useState(45);
-  const [angleB, setAngleB] = useState(75);
+  const [angleA, setAngleA] = useState(36);
+  const [angleB, setAngleB] = useState(49);
   const [quizRevealed, setQuizRevealed] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
 
