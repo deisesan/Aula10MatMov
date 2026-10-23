@@ -1,16 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MathView from '../components/MathView';
-import { Sparkles, CheckCircle, Compass, Triangle, Zap, Award } from 'lucide-react';
-import { sounds } from '../utils/audio';
+import { Sparkles, CheckCircle, Compass, Zap } from 'lucide-react';
 
 export default function Slide1Welcome() {
-  const [reactions, setReactions] = useState({ bomDia: 0, prontos: 0 });
-
-  const addReaction = (type) => {
-    sounds.playTone(type === 'bomDia' ? 523.25 : 659.25, 'triangle', 0.15);
-    setReactions((prev) => ({ ...prev, [type]: prev[type] + 1 }));
-  };
-
   return (
     <div className="h-full flex flex-col justify-between p-6 sm:p-10 max-w-6xl mx-auto overflow-y-auto">
       {/* Top Banner */}
@@ -109,28 +101,6 @@ export default function Slide1Welcome() {
                 block
                 className="text-white text-sm sm:text-base font-bold"
               />
-            </div>
-
-            {/* Interactive Check-in Buttons */}
-            <div className="grid grid-cols-2 gap-2 pt-1">
-              <button
-                onClick={() => addReaction('bomDia')}
-                className="py-2 px-3 rounded-xl bg-slate-800 hover:bg-indigo-600/30 border border-slate-700 hover:border-indigo-500/50 text-xs font-bold text-slate-200 transition flex items-center justify-between"
-              >
-                <span>☀️ Bom dia no Chat</span>
-                <span className="px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono">
-                  {reactions.bomDia}
-                </span>
-              </button>
-              <button
-                onClick={() => addReaction('prontos')}
-                className="py-2 px-3 rounded-xl bg-slate-800 hover:bg-emerald-600/30 border border-slate-700 hover:border-emerald-500/50 text-xs font-bold text-slate-200 transition flex items-center justify-between"
-              >
-                <span>📓 Caderno Aberto</span>
-                <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono">
-                  {reactions.prontos}
-                </span>
-              </button>
             </div>
           </div>
 
