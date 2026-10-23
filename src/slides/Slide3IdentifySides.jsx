@@ -26,6 +26,12 @@ export default function Slide3IdentifySides() {
   const isC = highlightPair === 'pairC' || highlightPair === 'all';
   const showCircle = highlightPair === 'circumcircle';
 
+  // Exact Circumcircle: Center (160, 115), Radius R = 85
+  // Exact vertices on the circle (85^2 = 7225):
+  // A(85, 155)  -> (-75)^2 + 40^2  = 5625 + 1600 = 7225
+  // B(235, 155) -> (+75)^2 + 40^2  = 5625 + 1600 = 7225
+  // C(147, 31)  -> (-13)^2 + (-84)^2 = 169 + 7056 = 7225
+
   return (
     <div className="h-full flex flex-col justify-between p-6 sm:p-8 max-w-6xl mx-auto overflow-y-auto">
       {/* Header */}
@@ -106,53 +112,61 @@ export default function Slide3IdentifySides() {
           </div>
 
           <div className="w-full h-64 bg-slate-950 rounded-2xl border border-slate-800 p-2 flex items-center justify-center relative">
-            <svg viewBox="0 0 320 230" className="w-full h-full max-w-[320px]">
-              {/* Optional Circumcircle */}
+            <svg viewBox="0 0 320 220" className="w-full h-full max-w-[320px]">
+              {/* Circumcircle passing EXACTLY through A(85,155), B(235,155), C(147,31) */}
+              <circle
+                cx="160"
+                cy="115"
+                r="85"
+                fill={showCircle ? 'rgba(168, 85, 247, 0.08)' : 'none'}
+                stroke={showCircle ? '#a855f7' : '#334155'}
+                strokeWidth={showCircle ? '2.5' : '1.2'}
+                strokeDasharray="5 4"
+                opacity={showCircle ? 1 : 0.45}
+              />
+
               {showCircle && (
                 <g className="animate-in fade-in">
-                  <circle
-                    cx="160"
-                    cy="122"
-                    r="102"
-                    fill="rgba(168, 85, 247, 0.06)"
-                    stroke="#a855f7"
-                    strokeWidth="2"
-                    strokeDasharray="6 4"
-                  />
-                  <line x1="58" y1="122" x2="262" y2="122" stroke="#c084fc" strokeWidth="2" />
-                  <circle cx="160" cy="122" r="3.5" fill="#c084fc" />
-                  <text x="160" y="114" fill="#d8b4fe" fontSize="11" fontWeight="bold" textAnchor="middle">
+                  {/* Horizontal Diameter = 2R from (75, 115) to (245, 115) */}
+                  <line x1="75" y1="115" x2="245" y2="115" stroke="#c084fc" strokeWidth="2.2" />
+                  {/* Radius line from center (160,115) to B(235,155) */}
+                  <line x1="160" y1="115" x2="235" y2="155" stroke="#e879f9" strokeWidth="1.8" strokeDasharray="3 3" />
+                  <circle cx="160" cy="115" r="4" fill="#c084fc" />
+                  <text x="160" y="107" fill="#e9d5ff" fontSize="11" fontWeight="bold" textAnchor="middle">
                     Diâmetro = 2R
+                  </text>
+                  <text x="205" y="132" fill="#f0abfc" fontSize="10" fontWeight="bold">
+                    R
                   </text>
                 </g>
               )}
 
-              {/* Triangle vertices: A(65, 175), B(255, 175), C(140, 35) */}
-              <polygon points="65,175 255,175 140,35" fill="rgba(99, 102, 241, 0.08)" />
+              {/* Triangle vertices inscribed in the circle: A(85, 155), B(235, 155), C(147, 31) */}
+              <polygon points="85,155 235,155 147,31" fill="rgba(99, 102, 241, 0.1)" />
 
               {/* Side c (AB - bottom, opposite to C) */}
               <line
-                x1="65" y1="175" x2="255" y2="175"
+                x1="85" y1="155" x2="235" y2="155"
                 stroke={isC ? '#10b981' : '#475569'}
-                strokeWidth={isC ? '5' : '2.5'}
+                strokeWidth={isC ? '4.5' : '2.5'}
               />
               {/* Side a (BC - right, opposite to A) */}
               <line
-                x1="255" y1="175" x2="140" y2="35"
+                x1="235" y1="155" x2="147" y2="31"
                 stroke={isA ? '#f59e0b' : '#475569'}
-                strokeWidth={isA ? '5' : '2.5'}
+                strokeWidth={isA ? '4.5' : '2.5'}
               />
               {/* Side b (AC - left, opposite to B) */}
               <line
-                x1="65" y1="175" x2="140" y2="35"
+                x1="85" y1="155" x2="147" y2="31"
                 stroke={isB ? '#38bdf8' : '#475569'}
-                strokeWidth={isB ? '5' : '2.5'}
+                strokeWidth={isB ? '4.5' : '2.5'}
               />
 
               {/* Opposite Arrows */}
               {isA && (
                 <line
-                  x1="92" y1="158" x2="192" y2="108"
+                  x1="108" y1="142" x2="185" y2="95"
                   stroke="#f59e0b"
                   strokeWidth="2"
                   strokeDasharray="4 3"
@@ -160,7 +174,7 @@ export default function Slide3IdentifySides() {
               )}
               {isB && (
                 <line
-                  x1="225" y1="158" x2="110" y2="108"
+                  x1="210" y1="142" x2="120" y2="95"
                   stroke="#38bdf8"
                   strokeWidth="2"
                   strokeDasharray="4 3"
@@ -168,47 +182,47 @@ export default function Slide3IdentifySides() {
               )}
               {isC && (
                 <line
-                  x1="145" y1="68" x2="155" y2="168"
+                  x1="149" y1="58" x2="156" y2="148"
                   stroke="#10b981"
                   strokeWidth="2"
                   strokeDasharray="4 3"
                 />
               )}
 
-              {/* Vertex & Angle A */}
-              <circle cx="65" cy="175" r="4" fill="#f59e0b" />
-              <text x="45" y="185" fill={isA ? '#fbbf24' : '#94a3b8'} fontSize="15" fontWeight="black">
+              {/* Vertex & Angle A(85, 155) */}
+              <circle cx="85" cy="155" r="4.5" fill="#f59e0b" />
+              <text x="64" y="166" fill={isA ? '#fbbf24' : '#94a3b8'} fontSize="14" fontWeight="black">
                 Â
               </text>
               {/* Side a label */}
-              <text x="212" y="98" fill={isA ? '#fbbf24' : '#94a3b8'} fontSize="16" fontWeight="black">
+              <text x="202" y="88" fill={isA ? '#fbbf24' : '#94a3b8'} fontSize="15" fontWeight="black">
                 a
               </text>
 
-              {/* Vertex & Angle B */}
-              <circle cx="255" cy="175" r="4" fill="#38bdf8" />
-              <text x="268" y="185" fill={isB ? '#38bdf8' : '#94a3b8'} fontSize="15" fontWeight="black">
+              {/* Vertex & Angle B(235, 155) */}
+              <circle cx="235" cy="155" r="4.5" fill="#38bdf8" />
+              <text x="246" y="166" fill={isB ? '#38bdf8' : '#94a3b8'} fontSize="14" fontWeight="black">
                 B̂
               </text>
               {/* Side b label */}
-              <text x="82" y="98" fill={isB ? '#38bdf8' : '#94a3b8'} fontSize="16" fontWeight="black">
+              <text x="98" y="88" fill={isB ? '#38bdf8' : '#94a3b8'} fontSize="15" fontWeight="black">
                 b
               </text>
 
-              {/* Vertex & Angle C */}
-              <circle cx="140" cy="35" r="4" fill="#10b981" />
-              <text x="140" y="22" fill={isC ? '#34d399' : '#94a3b8'} fontSize="15" fontWeight="black" textAnchor="middle">
+              {/* Vertex & Angle C(147, 31) */}
+              <circle cx="147" cy="31" r="4.5" fill="#10b981" />
+              <text x="147" y="18" fill={isC ? '#34d399' : '#94a3b8'} fontSize="14" fontWeight="black" textAnchor="middle">
                 Ĉ
               </text>
               {/* Side c label */}
-              <text x="160" y="198" fill={isC ? '#34d399' : '#94a3b8'} fontSize="16" fontWeight="black" textAnchor="middle">
+              <text x="160" y="175" fill={isC ? '#34d399' : '#94a3b8'} fontSize="15" fontWeight="black" textAnchor="middle">
                 c
               </text>
             </svg>
           </div>
 
           <div className="w-full mt-3 p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-center text-xs text-slate-300">
-            <strong>Regra da Seta Cruzada:</strong> Cada lado fica em cima do seno do ângulo que está de frente para ele!
+            <strong>Triângulo Inscrito na Circunferência:</strong> Os 3 vértices A, B e C tocam exatamente a circunferência de raio R!
           </div>
         </div>
 
@@ -242,14 +256,13 @@ export default function Slide3IdentifySides() {
             </div>
           </div>
 
-          {/* Live Chat Dinâmica */}
+          {/* Verificação de Montagem */}
           <div className="bg-gradient-to-br from-indigo-950/40 to-slate-900 border border-indigo-500/40 rounded-3xl p-4 sm:p-5">
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-bold text-indigo-300 flex items-center gap-1">
                 <HelpCircle className="w-4 h-4 text-amber-400" />
-                Dinâmica de Chat: Qual montagem está CORRETA?
+                Verificação Rápida: Qual montagem está CORRETA?
               </span>
-              <span className="text-[11px] text-amber-400 font-bold">Digite A ou B no chat</span>
             </div>
 
             <p className="text-xs sm:text-sm text-slate-200 mb-3">
