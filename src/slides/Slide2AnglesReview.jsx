@@ -127,9 +127,6 @@ export default function Slide2AnglesReview() {
               </tbody>
             </table>
           </div>
-          <div className="text-[11px] text-amber-300/90 mt-2 bg-slate-950/60 p-1.5 rounded-lg border border-amber-500/20 text-center">
-            ⭐ Guardem com carinho: <MathView math="\cos 90^\circ = 0" /> e <MathView math="\cos 120^\circ = -\frac{1}{2}" />!
-          </div>
         </div>
       </div>
 
